@@ -8,4 +8,6 @@ Install
 
     sudo apt-get install workrave parcellite
 
+    mv ~/.i3 ~/i3_backup
+
     git clone git@github.com:mjirik/i3setup.git ~/.i3
