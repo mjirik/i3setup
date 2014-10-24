@@ -210,6 +210,7 @@ assign [class="chrome"] 4
 # old Screenshot
 # bind 218 exec gnome-screenshot -i
 
+exec numlockx on
 exec "setxkbmap cz basic0"
 exec setxkbmap cz basic0
 exec dropbox start
