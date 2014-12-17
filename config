@@ -217,7 +217,7 @@ exec numlockx on
 exec dropbox start
 exec kupfer &
 exec workrave
-exec ./.screenlayout/screen.sh
+# exec ./.screenlayout/screen.sh
 
 exec --no-startup-id nm-applet
 exec --no-startup-id parcellite
