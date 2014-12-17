@@ -172,6 +172,7 @@ bindsym $mod+r mode "resize"
 bindsym XF86AudioRaiseVolume exec "amixer set Master 2+"
 bindsym XF86AudioLowerVolume exec "amixer set Master 2-"
 bindsym XF86AudioMute exec "amixer set Master toggle"
+bindsym $mod+Control+v exec xfce4-mixer
 
 # Screen Lock
 bindsym $mod+Control+l exec "slock"
@@ -211,15 +212,15 @@ assign [class="chrome"] 4
 # bind 218 exec gnome-screenshot -i
 
 exec numlockx on
-exec "setxkbmap cz basic0"
-exec setxkbmap cz basic0
+# exec "setxkbmap cz basic0"
+# exec setxkbmap cz basic0
 exec dropbox start
 exec kupfer &
 exec workrave
+exec ./.screenlayout/screen.sh
 
 exec --no-startup-id nm-applet
 exec --no-startup-id parcellite
-
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
