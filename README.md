@@ -6,7 +6,7 @@ Setup for i3 wm
 Install
 =======
 
-    sudo apt-get install workrave parcellite xfce4-mixer
+    sudo apt-get install workrave parcellite xfce4-mixer gnome-screenshot
 
     mv ~/.i3 ~/i3_backup
 
