@@ -138,9 +138,26 @@ bind $mod+Shift+19 move container to workspace 10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' -b 'Shutdown computer' ''"
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $i3_path/i3exit lock, mode "default"
+    bindsym e exec --no-startup-id $i3_path/i3exit logout, mode "default"
+    bindsym s exec --no-startup-id $i3_path/i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id $i3_path/i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id $i3_path/i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id $i3_path/i3exit shutdown, mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode "$mode_system"
+
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -177,6 +194,7 @@ bindsym $mod+Control+v exec xfce4-mixer
 # Screen Lock
 bindsym $mod+Control+l exec "slock"
 
+bindsym $mod+Control+x exec xfce4-session-logout
 # Screenshot
 # bindsym Print exec "scrot -e 'mv $f ~/Pictures/Screenshots/'"
 bindsym Print exec gnome-screenshot -i
@@ -208,9 +226,10 @@ assign [class="chrome"] 4
 # assign [title="^Stardict$"] 10
 # assign [class="^Sflphone$"] 10
 
+# floating forn notifications
+for_window [class="Xfce4-notifyd"] floating enable; border none; focus mode_toggle
 # old Screenshot
 # bind 218 exec gnome-screenshot -i
-
 exec numlockx on
 # exec "setxkbmap cz basic0"
 # exec setxkbmap cz basic0
